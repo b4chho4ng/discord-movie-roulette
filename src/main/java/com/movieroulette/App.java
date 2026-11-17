@@ -6,16 +6,19 @@ public class App
 
         MovieCollection movieCollection = new MovieCollection();
 
-        movieCollection.addMovie(new Movie("Pulp Fiction"));
-        movieCollection.addMovie(new Movie("American Beauty"));
-        movieCollection.addMovie(new Movie("Mad Max: Fury Road"));
-        //movieCollection.addMovie(new Movie("Mad Max: Fury Road"));
+        movieCollection.addMovie(new Movie("Pulp Fiction", 1995, "crime", true));
+        movieCollection.addMovie(new Movie("Mad Max: Fury Road", true));
+        movieCollection.addMovie(new Movie("Stalker", false));
+        movieCollection.addMovie(new Movie("A Few Good Man", false));
+        movieCollection.addMovie(new Movie("Leon: The Professional", false));
 
-        Movie selectedMovie = movieCollection.selectRandomMovie();
-        if (selectedMovie != null) {
-            System.out.println(selectedMovie.getTitle());
-        } else {
-            System.out.println("No movie available!");
-        }
+        Movie randomMovie = movieCollection.getRandomMovie();
+        System.out.println(randomMovie.getTitle());
+
+        movieCollection.markMovieAsWatched(randomMovie.getTitle());
+
+        Movie anotherRandomMovie = movieCollection.getRandomMovie();
+        System.out.println(anotherRandomMovie.getTitle());
+
     }
 }
