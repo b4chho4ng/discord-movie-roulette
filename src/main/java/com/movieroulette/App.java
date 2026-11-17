@@ -11,9 +11,11 @@ public class App
         movieCollection.addMovie(new Movie("Mad Max: Fury Road"));
         //movieCollection.addMovie(new Movie("Mad Max: Fury Road"));
 
-        movieCollection.listMovies();
-
-        movieCollection.removeMovie("Pulp Fiction");
-        movieCollection.listMovies();
+        Movie selectedMovie = movieCollection.selectRandomMovie();
+        if (selectedMovie != null) {
+            System.out.println(selectedMovie.getTitle());
+        } else {
+            System.out.println("No movie available!");
+        }
     }
 }

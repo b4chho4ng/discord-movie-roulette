@@ -1,6 +1,7 @@
 package com.movieroulette;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MovieCollection {
     
@@ -40,6 +41,23 @@ public class MovieCollection {
             }
         }
         System.out.println("Movie not found:(");
+    }
+
+    //Public method to randomly select a movie from the list
+    public Movie selectRandomMovie() {
+        //Check if the movie list is empty beforehand
+        if (movies.isEmpty()) {
+            //System.out.println("Movie list is empty!");
+            return null;
+        }
+
+        //Generate a random index for retrieval
+        Random random = new Random();
+        int movieIndex = random.nextInt(movies.size());
+        Movie selectedMovie = movies.get(movieIndex);
+
+        //System.out.println("The random movie for today is: " + selectedMovie.getTitle());
+        return selectedMovie;
     }
 
 }
